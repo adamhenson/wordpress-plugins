@@ -1,12 +1,12 @@
 <?php
 function insertagram_insert_instance( $id ) {
 
-	global $wpdb;
+  global $wpdb;
 
-	$time = current_time( 'mysql' );
-	$table_instance_name = $wpdb->prefix . 'insertagram_instances';
+  $time = current_time( 'mysql' );
+  $table_instance_name = $wpdb->prefix . 'insertagram_instances';
 
-	$instance_data = array( 
+  $instance_data = array( 
     'time' => $time,
     'instance_id' => $id,
   );
@@ -62,77 +62,77 @@ function insertagram_insert_media( $id, $index ) {
 }
 
 function insertagram_insert_init() {
-	$insertagram_post_response = array();
-	$insertagram_success = false;
+  $insertagram_post_response = array();
+  $insertagram_success = false;
 
-	if ( isset( $_POST ) && isset( $_POST['insertagram'] ) ) {
+  if ( isset( $_POST ) && isset( $_POST['insertagram'] ) ) {
 
-		$date = new DateTime();
-	  $id = $date->getTimestamp();
+    $date = new DateTime();
+    $id = $date->getTimestamp();
 
-	  foreach ($_POST as $key => $value) {
-	    $pos = strrpos( $key, 'instagram_id' );
-	    if ($pos !== false) {
-	      $index = str_replace('instagram_id','', $key);
-	      $insertagram_sub_post_response = insertagram_insert_media( $id, $index );
-	      if ( isset( $insertagram_sub_post_response ) ) {
-	      	if( $insertagram_sub_post_response['status'] ) $insertagram_success = $id;
-	      	array_push( $insertagram_post_response, $insertagram_sub_post_response );
-	      }
-	    }
-	  }
+    foreach ($_POST as $key => $value) {
+      $pos = strrpos( $key, 'instagram_id' );
+      if ($pos !== false) {
+        $index = str_replace('instagram_id','', $key);
+        $insertagram_sub_post_response = insertagram_insert_media( $id, $index );
+        if ( isset( $insertagram_sub_post_response ) ) {
+          if( $insertagram_sub_post_response['status'] ) $insertagram_success = $id;
+          array_push( $insertagram_post_response, $insertagram_sub_post_response );
+        }
+      }
+    }
 
-	  if( $insertagram_success ) {
-	  	insertagram_insert_instance( $id );
-	  }
-	}
+    if( $insertagram_success ) {
+      insertagram_insert_instance( $id );
+    }
+  }
 
-	insertagram_insert_template( $insertagram_post_response, $insertagram_success );
+  insertagram_insert_template( $insertagram_post_response, $insertagram_success );
 
-	return false;
+  return false;
 
 };
 
 function insertagram_insert_template( $insertagram_post_response, $insertagram_success ) {
-	$namespace = 'Insertagram';
+  $namespace = 'Insertagram';
 ?>
 <div class="wrap">
-	<h1>Select and Group Media to Create a Shortcode</h1>
+  <h1>Select and Group Media to Create a Shortcode</h1>
 <?php
-	if ( !empty( $insertagram_post_response ) ) {
-	  foreach ( $insertagram_post_response as &$insertagram_sub ) {
-	    if( !$insertagram_sub['status'] && $insertagram_sub['data'] ) {
-	    	$insertagram_post_status = 'notice-warning';
+  if ( !empty( $insertagram_post_response ) ) {
+    foreach ( $insertagram_post_response as &$insertagram_sub ) {
+      if( !$insertagram_sub['status'] && $insertagram_sub['data'] ) {
+        $insertagram_post_status = 'notice-warning';
 ?>
-	<div class="<?php echo $insertagram_post_status; ?> notice is-dismissible"> 
-		<p><strong><?php echo $namespace; ?></strong> (warning)</p>
-		<?php echo $insertagram_sub['data']; ?>
-		<button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button>
-	</div>
+  <div class="<?php echo $insertagram_post_status; ?> notice is-dismissible"> 
+    <p><strong><?php echo $namespace; ?></strong> (warning)</p>
+    <?php echo $insertagram_sub['data']; ?>
+    <button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button>
+  </div>
 <?php
-			} // end if( !$insertagram_sub['status'] && $insertagram_sub['data'] )
-		} // end foreach
-		if( $insertagram_success ) {
-			$insertagram_post_status = 'updated';
+      } // end if( !$insertagram_sub['status'] && $insertagram_sub['data'] )
+    } // end foreach
+    if( $insertagram_success ) {
+      $insertagram_post_status = 'updated';
 ?>
-	<div class="<?php echo $insertagram_post_status; ?> notice is-dismissible">
-		<p><strong><?php echo $namespace; ?></strong></p>
-		<p>Thanks for submitting! Your shortcode is below.</p>
+  <div class="<?php echo $insertagram_post_status; ?> notice is-dismissible">
+    <p><strong><?php echo $namespace; ?></strong></p>
+    <p>Thanks for submitting! Your shortcode is below.</p>
     <p><code>[insertagram id="<?php echo $insertagram_success ?>"]</code></p>
-		<button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button>
-	</div>
+    <button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button>
+  </div>
 <?php
-		} else {
-			$insertagram_post_status = 'error';
+    } else {
+      $insertagram_post_status = 'error';
 ?>
-	<div class="<?php echo $insertagram_post_status; ?> notice is-dismissible"> 
-		<p><strong><?php echo $namespace; ?></strong> (error)</p>
-		<p>Unfortunately it all went wrong. Copy and paste the warning messages above and send to Insertagram contact.</p>
-		<button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button>
-	</div>
+  <div class="<?php echo $insertagram_post_status; ?> notice is-dismissible"> 
+    <p><strong><?php echo $namespace; ?></strong> (error)</p>
+    <p>Unfortunately it all went wrong. Copy and paste the warning messages above and send to Insertagram contact.</p>
+    <button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button>
+  </div>
 <?php
-		} // end if( $insertagram_success )
-	} // end if !empty( $insertagram_post_response )
+    } // end if( $insertagram_success )
+  } // end if !empty( $insertagram_post_response )
 ?>
   <div id="insertagram-gallery-admin" class="insertagram-container">
     <div class="insertagram-gallery-admin-content">
@@ -151,7 +151,7 @@ function insertagram_insert_template( $insertagram_post_response, $insertagram_s
   </div>
 </div>
 <?php
-	return false;
+  return false;
 }
 
 insertagram_insert_init();

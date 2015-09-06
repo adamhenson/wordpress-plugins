@@ -12,7 +12,7 @@ class InsertagramPageController
 
   }
 
-  public function wp_enqueue_scripts() 
+  public function wp_enqueue() 
   {
 
     wp_enqueue_style( 'ss-standard', INSERTAGRAM_URL . 'css/webfonts/ss-standard.css' );
@@ -22,7 +22,7 @@ class InsertagramPageController
   
   }
 
-  public function admin_enqueue_scripts() 
+  public function admin_enqueue() 
   {
 
     wp_enqueue_style( 'ss-standard', INSERTAGRAM_URL . 'css/webfonts/ss-standard.css' );

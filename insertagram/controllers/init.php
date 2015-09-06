@@ -26,8 +26,8 @@ class InsertagramInitController
     // install
     register_activation_hook( INSERTAGRAM_DIR . '/insertagram.php', array( $installController, 'install' ) );
     // page
-    add_action( 'wp_enqueue_scripts', array( $pageController, 'wp_enqueue_scripts' ) );
-    add_action( 'admin_enqueue_scripts', array( $pageController, 'admin_enqueue_scripts' ) );
+    add_action( 'wp_enqueue_scripts', array( $pageController, 'wp_enqueue' ) );
+    add_action( 'admin_enqueue_scripts', array( $pageController, 'admin_enqueue' ) );
     add_action( 'wp_head', array( $pageController, 'wp_head' ) );
     add_action( 'wp_footer', array( $pageController, 'wp_footer' ) );
     add_action( 'admin_head', array( $pageController, 'wp_head' ) );

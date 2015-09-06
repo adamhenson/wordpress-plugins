@@ -46,22 +46,6 @@ class InsertagramSettingsController
     );
 
     add_settings_field( 
-      'insertagram_text_license', 
-      __( 'License #', 'insertagram' ), 
-      array( $this, 'text_license_render' ), 
-      'pluginPage', 
-      'insertagram_pluginPage_section' 
-    );
-
-    add_settings_field( 
-      'insertagram_text_instagram_username', 
-      __( 'Instagram Username: @', 'insertagram' ), 
-      array( $this, 'text_instagram_username_render' ), 
-      'pluginPage', 
-      'insertagram_pluginPage_section' 
-    );
-
-    add_settings_field( 
       'insertagram_text_instagram_userId', 
       __( 'Instagram User ID', 'insertagram' ), 
       array( $this, 'text_instagram_userId' ), 
@@ -71,27 +55,11 @@ class InsertagramSettingsController
 
     add_settings_field( 
       'insertagram_text_instagram_api_token', 
-      __( 'Instagram API Token (optional)', 'insertagram' ), 
+      __( 'Instagram API Token', 'insertagram' ), 
       array( $this, 'text_instagram_api_token_render' ), 
       'pluginPage', 
       'insertagram_pluginPage_section' 
     );
-
-  }
-
-  public function text_license_render() 
-  { 
-
-    $options = get_option( 'insertagram_settings' );
-    echo $this->view->text_license_render( $options );
-
-  }
-
-  public function text_instagram_username_render() 
-  { 
-
-    $options = get_option( 'insertagram_settings' );
-    echo $this->view->text_instagram_username_render( $options );
 
   }
 

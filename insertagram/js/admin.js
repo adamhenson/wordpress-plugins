@@ -139,7 +139,9 @@
 
   };
 
-  var newInsertagram = new Insertagram();
-  newInsertagram.initialize();
+  if(window.insertagramConfig){
+    var newInsertagram = new Insertagram();
+    newInsertagram.initialize();
+  }
 
 })( window, jQuery, _ );

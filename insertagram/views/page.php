@@ -9,9 +9,7 @@ class InsertagramPageView
 
   <script>
     window.insertagramConfig = {
-      'license' : '<?php echo $options["insertagram_text_license"]; ?>',
       'instagram' : {
-        'username' : '<?php echo $options["insertagram_text_instagram_username"]; ?>',
         'userId' : '<?php echo $options["insertagram_text_instagram_userId"]; ?>',
         'token' : '<?php echo $options["insertagram_text_instagram_api_token"]; ?>'
       },

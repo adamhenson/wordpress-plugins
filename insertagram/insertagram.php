@@ -15,7 +15,7 @@ if (!defined( 'INSERTAGRAM_URL' )) {
 if (!defined( 'INSERTAGRAM_DIR' )) {
   define( 'INSERTAGRAM_DIR', dirname( __FILE__ ) );
 }
-if (!defined( 'INSERTAGRAM_DB_VERSION')) {
+if (!defined( 'INSERTAGRAM_DB_VERSION' )) {
   define( 'INSERTAGRAM_DB_VERSION', '0.0.1' );
 }
 

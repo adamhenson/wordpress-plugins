@@ -217,8 +217,15 @@
   position: relative;
 }
 
-#insertagram-gallery-admin figure.active,
-#insertagram-gallery-admin figure:hover {
+#insertagram-gallery-admin figure.active:after,
+#insertagram-gallery-admin figure:hover:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   /* vignette to override blur edges */
   -webkit-box-shadow: inset 0px 0px 40px #000;
   -moz-box-shadow: inset 0px 0px 40px #000;

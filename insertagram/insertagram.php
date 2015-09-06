@@ -9,10 +9,6 @@ Author URI: https://github.com/adamhenson
 Text Domain: insertagram
 License: GPL version 2 or later - http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 */
-
-/*****************************************************************************
- * constants and globals                                                     *
- *****************************************************************************/
 if (!defined( 'INSERTAGRAM_URL' )) {
   define( 'INSERTAGRAM_URL', plugin_dir_url( __FILE__ ) );
 }
@@ -22,11 +18,7 @@ if (!defined( 'INSERTAGRAM_DIR' )) {
 if (!defined( 'INSERTAGRAM_DB_VERSION')) {
   define( 'INSERTAGRAM_DB_VERSION', '0.0.1' );
 }
-/*****************************************************************************
- * include files                                                             *
- *****************************************************************************/
+
 require_once( INSERTAGRAM_DIR . '/controllers/init.php' );
-/*****************************************************************************
- * instantiate initController                                                *
- *****************************************************************************/
+
 $insertagramInitController = new InsertagramInitController();

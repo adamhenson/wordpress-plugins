@@ -3,10 +3,6 @@ require_once( INSERTAGRAM_DIR . '/views/page.php' );
 
 class InsertagramPageController
 {
-  public function __construct()
-  {
-    // silence
-  }
   public function install() {
 
     global $wpdb;

@@ -51,9 +51,9 @@ class InsertagramShortcodeView
   {
 
     $namespace = 'Insertagram';
-?>
-<div class="wrap">
-  <h1>Select Media to Create a Shortcode</h1>
+  ?>
+  <div class="wrap">
+    <h1>Select Media to Create a Shortcode</h1>
   <?php
     if ( !empty( $insertagram_post_response ) ) {
       foreach ( $insertagram_post_response as &$insertagram_sub ) {

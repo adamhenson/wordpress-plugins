@@ -10,7 +10,7 @@
     this.config = {
       'instagram' : {
         'client' : 'a26ca36e89284e03be9b47bd3b0f9cc7',
-        'authRedirect' : 'http://garzadam.hensonism.com/',
+        'authRedirect' : 'http://localhost:8080/',
         'apiDomain' : 'https://api.instagram.com/v1',
         'apiMaxCount' : 20
       },
@@ -139,7 +139,7 @@
       $('#insertagram-btn-auth').on('click', function(e){
         e.preventDefault();
         var url = 'https://api.instagram.com/oauth/authorize/?client_id=' + self.config.instagram.client + '&redirect_uri=' + self.config.instagram.authRedirect + '&response_type=code';
-        self.fetch(url, 'jsonp', function(response){
+        self.fetch(url, 'json', function(response){
           console.log(response);
         });
       });

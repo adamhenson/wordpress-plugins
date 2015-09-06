@@ -44,6 +44,13 @@ class InsertagramSettingsView
       submit_button();
       ?>
       
+      <?php
+      global $wp;
+      $current_url = add_query_arg( $wp->query_string, '', home_url( $wp->request ) );
+      $current_url = 'http://garzadam.hensonism.com';
+      ?>
+      <a href="https://api.instagram.com/oauth/authorize/?client_id=a26ca36e89284e03be9b47bd3b0f9cc7&redirect_uri=<?php echo $current_url ?>&response_type=code">Authenticate</a>
+
     </form>
 
     <?php

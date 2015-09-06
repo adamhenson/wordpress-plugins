@@ -2,6 +2,7 @@
 require_once( INSERTAGRAM_DIR . '/controllers/install.php' );
 require_once( INSERTAGRAM_DIR . '/controllers/page.php' );
 require_once( INSERTAGRAM_DIR . '/controllers/settings.php' );
+require_once( INSERTAGRAM_DIR . '/controllers/shortcode.php' );
 
 class InsertagramInitController
 {
@@ -19,8 +20,9 @@ class InsertagramInitController
     $installController = new InsertagramInstallController();
     $pageController = new InsertagramPageController();
     $settingsController = new InsertagramSettingsController();
+    $shortcodeController = new InsertagramShortcodeController();
 
-    register_activation_hook( __FILE__, array( $installController, 'install' ) );
+    register_activation_hook( INSERTAGRAM_DIR . '/insertagram.php', array( $installController, 'install' ) );
 
     // actions
     add_action( 'wp_enqueue_scripts', array( $pageController, 'wp_enqueue_scripts' ) );
@@ -29,7 +31,7 @@ class InsertagramInitController
     add_action( 'wp_footer', array( $pageController, 'wp_footer' ) );
     add_action( 'admin_head', array( $pageController, 'wp_head' ) );
     add_action( 'admin_footer', array( $pageController, 'admin_footer' ) );
-    add_shortcode( 'insertagram', array( $pageController, 'shortcode' ) );
+    add_shortcode( 'insertagram', array( $shortcodeController, 'render' ) );
     // settings & menu actions
     add_action( 'admin_menu', array( $settingsController, 'add_admin_menu' ) );
     add_action( 'admin_init', array( $settingsController, 'settings_init' ) );

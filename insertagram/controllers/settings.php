@@ -1,9 +1,19 @@
 <?php
 
+require_once( INSERTAGRAM_DIR . '/views/settings.php' );
+
 class InsertagramSettingsController
 {
 
-  public function add_admin_menu() { 
+  public function __construct()
+  {
+
+    $this->view = new InsertagramSettingsView();
+
+  }
+
+  public function add_admin_menu() 
+  { 
 
     // Settings
     add_options_page( 'Insertagram', 'Insertagram', 'manage_options', 'insertagram', array( $this, 'options_page' ) );
@@ -23,7 +33,8 @@ class InsertagramSettingsController
 
   }
 
-  public function settings_init() { 
+  public function settings_init() 
+  { 
 
     register_setting( 'pluginPage', 'insertagram_settings' );
 
@@ -68,57 +79,42 @@ class InsertagramSettingsController
 
   }
 
-  public function text_license_render() { 
+  public function text_license_render() 
+  { 
 
     $options = get_option( 'insertagram_settings' );
-    ?>
-    <input type='text' name='insertagram_settings[insertagram_text_license]' value='<?php echo $options['insertagram_text_license']; ?>'>
-    <?php
+    echo $this->view->text_license_render( $options );
 
   }
 
-  public function text_instagram_username_render() { 
+  public function text_instagram_username_render() 
+  { 
 
     $options = get_option( 'insertagram_settings' );
-    ?>
-    <input type='text' name='insertagram_settings[insertagram_text_instagram_username]' value='<?php echo $options['insertagram_text_instagram_username']; ?>'>
-    <?php
+    echo $this->view->text_instagram_username_render( $options );
 
   }
 
-  public function text_instagram_userId() { 
+  public function text_instagram_userId() 
+  { 
 
     $options = get_option( 'insertagram_settings' );
-    ?>
-    <input type='text' name='insertagram_settings[insertagram_text_instagram_userId]' value='<?php echo $options['insertagram_text_instagram_userId']; ?>'>
-    <?php
+    echo $this->view->text_instagram_userId( $options );
 
   }
 
-  public function text_instagram_api_token_render() { 
+  public function text_instagram_api_token_render() 
+  { 
 
     $options = get_option( 'insertagram_settings' );
-    ?>
-    <input type='text' name='insertagram_settings[insertagram_text_instagram_api_token]' value='<?php echo $options['insertagram_text_instagram_api_token']; ?>'>
-    <?php
+    echo $this->view->text_instagram_api_token_render( $options );
 
   }
 
-  public function options_page() { 
+  public function options_page() 
+  { 
 
-    ?>
-    <form action='options.php' method='post' class="wrap">
-      
-      <h2>insertagram</h2>
-      
-      <?php
-      settings_fields( 'pluginPage' );
-      do_settings_sections( 'pluginPage' );
-      submit_button();
-      ?>
-      
-    </form>
-    <?php
+    $this->view->options_page();
 
   }
 

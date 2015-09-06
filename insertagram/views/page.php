@@ -3,7 +3,8 @@
 class InsertagramPageView
 {
 
-  public function wp_head( $options ) {
+  public function wp_head( $options ) 
+  {
   ?>
 
   <script>
@@ -22,27 +23,8 @@ class InsertagramPageView
   <?php
   }
 
-  public function gallery_image( $elId, $item, $info ) {
-
-    $imageHtml = '';
-
-    if ( $info != 'false' ) {
-      $info = 'true';
-    }
-
-    $imageHtml .= '<script>'
-      . 'window.insertagramConfig.instances.push({'
-      . '"id" : "' . $item['instagram_id'] . '",'
-      . '"timestamp" : "' . $elId . '",'
-      . '"info" : ' . $info
-      . '});'
-      . '</script>';
-
-    return $imageHtml;
-
-  }
-
-  public function gallery_figure () {
+  public function gallery_figure () 
+  {
 
     $figureHtml = '<script id="insertagram-template-gallery-figure" type="text/template">'
       . '<figure class="insertagram<%= infoClass %>" id="insertagram-<%= userId %>">'
@@ -54,7 +36,8 @@ class InsertagramPageView
 
   }
 
-  public function gallery_figure_overlay () {
+  public function gallery_figure_overlay () 
+  {
 
     $figureOverlayHtml = '<script id="insertagram-template-gallery-figure-overlay" type="text/template">'
       . '<div class="insertagram__overlay">'
@@ -75,7 +58,8 @@ class InsertagramPageView
 
   }
 
-  public function admin_gallery_figure () {
+  public function admin_gallery_figure () 
+  {
 
     $adminFigureHtml = '<script id="insertagram-template-admin-gallery-figure" type="text/template">'
       . '<figure data-index="<%= index %>" data-instagram_id="<%= instagramId %>">'
@@ -88,7 +72,8 @@ class InsertagramPageView
 
   }
 
-  public function admin_gallery_inputs () {
+  public function admin_gallery_inputs () 
+  {
 
     $inputHtml = '<script id="insertagram-template-admin-gallery-inputs" type="text/template">'
       . '<div id="insertagram-form-node-<%= index %>">'

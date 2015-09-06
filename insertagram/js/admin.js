@@ -9,9 +9,10 @@
     // defaults
     this.config = {
       'instagram' : {
+        'client' : 'a26ca36e89284e03be9b47bd3b0f9cc7',
+        'authRedirect' : 'http://garzadam.hensonism.com/',
         'apiDomain' : 'https://api.instagram.com/v1',
-        'apiMaxCount' : 20,
-        'accessToken' : '55411296.a26ca36.f4ef61a79ae74fe0b2ce4ac6abbc378d'
+        'apiMaxCount' : 20
       },
       '$el' : {
         'form' : $('#insertagram-admin-form'),
@@ -37,14 +38,14 @@
    */
   window.Insertagram.prototype = {
 
-    'fetch' : function (url, callback) {
+    'fetch' : function (url, dataType, callback) {
       var self = this;
       $.ajax({
-        url : url,
-        type : 'GET',
-        dataType : 'jsonp',
-        cache : false,
-        async : true
+        'url' : url,
+        'type' : 'GET',
+        'dataType' : dataType,
+        'cache' : false,
+        'async' : true
       }).done(function(response) {
         callback.call(this, response);
       }).error(function(xhr) {
@@ -54,8 +55,8 @@
 
     'getRecent' : function (userId, callback) {
       var self = this;
-      var url = self.config.instagram.apiDomain + '/users/' + userId + '/media/recent/?count=' + self.config.instagram.apiMaxCount + '&access_token=' + self.config.instagram.accessToken;
-      self.fetch(url, callback);
+      var url = self.config.instagram.apiDomain + '/users/' + userId + '/media/recent/?count=' + self.config.instagram.apiMaxCount + '&access_token=' + self.config.instagram.token;
+      self.fetch(url, 'jsonp', callback);
     },
 
     'bindEvents' : function ($el) {
@@ -84,7 +85,7 @@
         var $this = $(this);
         var nextUrl = $(this).attr('data-url');
         $this.parent().addClass('loading');
-        self.fetch(nextUrl, function(response){
+        self.fetch(nextUrl, 'jsonp', function(response){
           $this.parent().removeClass('loading');
           self.displayRecent(response);
         });
@@ -135,6 +136,13 @@
           self.displayRecent(response);
         });
       }
+      $('#insertagram-btn-auth').on('click', function(e){
+        e.preventDefault();
+        var url = 'https://api.instagram.com/oauth/authorize/?client_id=' + self.config.instagram.client + '&redirect_uri=' + self.config.instagram.authRedirect + '&response_type=code';
+        self.fetch(url, 'jsonp', function(response){
+          console.log(response);
+        });
+      });
     }
 
   };

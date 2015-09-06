@@ -10,8 +10,7 @@
     this.config = {
       'instagram' : {
         'apiDomain' : 'https://api.instagram.com/v1',
-        'apiMaxCount' : 20,
-        'accessToken' : '55411296.a26ca36.f4ef61a79ae74fe0b2ce4ac6abbc378d'
+        'apiMaxCount' : 20
       },
       'template' : {
         'figure' : $('#insertagram-template-gallery-figure').html(),
@@ -68,13 +67,13 @@
 
     'getMediaData' : function (mediaId, callback) {
       var self = this;
-      var url = self.config.instagram.apiDomain + '/media/' + mediaId + '?access_token=' + self.config.instagram.accessToken;
+      var url = self.config.instagram.apiDomain + '/media/' + mediaId + '?access_token=' + self.config.instagram.token;
       self.fetch(url, callback);
     },
 
     'getRecent' : function (userId, callback) {
       var self = this;
-      var url = self.config.instagram.apiDomain + '/users/' + userId + '/media/recent/?count=' + self.config.instagram.apiMaxCount + '&access_token=' + self.config.instagram.accessToken;
+      var url = self.config.instagram.apiDomain + '/users/' + userId + '/media/recent/?count=' + self.config.instagram.apiMaxCount + '&access_token=' + self.config.instagram.token;
       self.fetch(url, callback);
     },
 

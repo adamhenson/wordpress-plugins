@@ -2,14 +2,7 @@
 
 class InsertagramInstanceModel
 {
-
-  public function __construct()
-  {
-
-    // placeholder
-
-  }
-
+  
   public function create( $table_name )
   {
 
@@ -27,6 +20,25 @@ class InsertagramInstanceModel
     require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
     dbDelta( $table );
 
+  }
+
+  public function insert( $id ) {
+
+    global $wpdb;
+
+    $time = current_time( 'mysql' );
+    $table_instance_name = $wpdb->prefix . 'insertagram_instances';
+
+    $instance_data = array( 
+      'time' => $time,
+      'instance_id' => $id,
+    );
+    $wpdb->insert( 
+      $table_instance_name, 
+      $instance_data
+    );
+
+    return false;
   }
 
 }

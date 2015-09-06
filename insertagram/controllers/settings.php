@@ -2,7 +2,7 @@
 
 class InsertagramSettingsController
 {
-  
+
   public function add_admin_menu() { 
 
     // Settings

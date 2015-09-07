@@ -48,7 +48,7 @@ class InsertagramSettingsController
     add_settings_field( 
       'insertagram_text_instagram_userId', 
       __( 'Instagram User ID', 'insertagram' ), 
-      array( $this, 'text_instagram_userId' ), 
+      array( $this, 'text_instagram_userId_render' ), 
       'pluginPage', 
       'insertagram_pluginPage_section' 
     );
@@ -61,9 +61,25 @@ class InsertagramSettingsController
       'insertagram_pluginPage_section' 
     );
 
+    add_settings_field( 
+      'insertagram_text_instagram_api_id', 
+      __( 'Instagram API ID', 'insertagram' ), 
+      array( $this, 'text_instagram_api_id_render' ), 
+      'pluginPage', 
+      'insertagram_pluginPage_section' 
+    );
+
+    add_settings_field( 
+      'insertagram_text_instagram_api_secret', 
+      __( 'Instagram API Secret', 'insertagram' ), 
+      array( $this, 'text_instagram_api_secret_render' ), 
+      'pluginPage', 
+      'insertagram_pluginPage_section' 
+    );
+
   }
 
-  public function text_instagram_userId() 
+  public function text_instagram_userId_render() 
   { 
 
     $options = get_option( 'insertagram_settings' );
@@ -76,6 +92,22 @@ class InsertagramSettingsController
 
     $options = get_option( 'insertagram_settings' );
     echo $this->view->text_instagram_api_token_render( $options );
+
+  }
+
+  public function text_instagram_api_id_render() 
+  { 
+
+    $options = get_option( 'insertagram_settings' );
+    echo $this->view->text_instagram_api_id_render( $options );
+
+  }
+
+  public function text_instagram_api_secret_render() 
+  { 
+
+    $options = get_option( 'insertagram_settings' );
+    echo $this->view->text_instagram_api_secret_render( $options );
 
   }
 

@@ -8,9 +8,10 @@
   window.Insertagram = function (config) {
     // defaults
     this.config = {
+      'authDomain' : 'https://hensonism-delegator.herokuapp.com',
       'instagram' : {
         'client' : 'a26ca36e89284e03be9b47bd3b0f9cc7',
-        'authRedirect' : 'https://hensonism-delegator.herokuapp.com/insertagram?callback=callback',
+        'authDomain' : 'https://api.instagram.com/oauth',
         'apiDomain' : 'https://api.instagram.com/v1',
         'apiMaxCount' : 20
       },
@@ -28,6 +29,8 @@
     }
     // extend instagram object
     this.config.instagram = _.extend(this.config.instagram, insertagramConfig.instagram);
+    this.config.authRedirect = this.config.authDomain + '/insertagram?callback=callback';
+    this.config.authCredsUrl = this.config.authDomain + '/insertagram/init';
     // extend and override any defaults from instantiation config
     this.config = _.extend(this.config, config);
     console.log('config admin', this.config);
@@ -141,9 +144,17 @@
       }
       $('#insertagram-btn-auth').on('click', function(e){
         e.preventDefault();
-        var url = 'https://api.instagram.com/oauth/authorize/?client_id=' + self.config.instagram.client + '&redirect_uri=' + self.config.instagram.authRedirect + '&response_type=code';
-        self.fetch(url, 'jsonp', 'callback', function(response){
-          console.log(response);
+        self.fetch(self.config.authCredsUrl, 'json', false, function(response){
+          var apiId = response.data.id;
+          var apiSecret = response.data.secret;
+          var codeUrl = self.config.instagram.authDomain + '/authorize/?client_id=' + apiId + '&redirect_uri=' + self.config.authRedirect + '&response_type=code';
+          self.fetch(codeUrl, 'jsonp', 'callback', function(response){
+            var redirect = encodeURIComponent(self.config.authRedirect);
+            var postUrl = self.config.authDomain + '/insertagram/auth/' + apiId + '/' + apiSecret + '/' + redirect + '/' + response.data.code;
+            self.fetch(postUrl, 'json', false, function(response){
+              console.log(response);
+            });
+          });
         });
       });
     }

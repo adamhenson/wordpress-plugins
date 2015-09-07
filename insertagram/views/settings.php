@@ -19,22 +19,6 @@ class InsertagramSettingsView
 
   }
 
-  public function text_instagram_api_id_render( $options ) 
-  { 
-
-    if( !isset( $options['insertagram_text_instagram_api_id'] ) ) $options['insertagram_text_instagram_api_id'] = '';
-    return '<input type="text" name="insertagram_settings[insertagram_text_instagram_api_id]" value="' . $options['insertagram_text_instagram_api_id'] . '">';
-
-  }
-
-  public function text_instagram_api_secret_render( $options ) 
-  { 
-
-    if( !isset( $options['insertagram_text_instagram_api_secret'] ) ) $options['insertagram_text_instagram_api_secret'] = '';
-    return '<input type="text" name="insertagram_settings[insertagram_text_instagram_api_secret]" value="' . $options['insertagram_text_instagram_api_secret'] . '">';
-
-  }
-
   public function options_page() { 
     ?>
 
@@ -49,6 +33,8 @@ class InsertagramSettingsView
       ?>
 
     </form>
+
+    <a href="https://hensonism-delegator.herokuapp.com/insertagram/code" target="_blank">Get Credentials</a>
 
     <?php
   }

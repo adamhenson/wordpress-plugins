@@ -8,17 +8,12 @@
   window.Insertagram = function (config) {
     // defaults
     this.config = {
-      'authDomain' : 'https://hensonism-delegator.herokuapp.com',
-      //'authDomain' : 'http://localhost:8080',
       'instagram' : {
-        'client' : 'a26ca36e89284e03be9b47bd3b0f9cc7',
-        'authDomain' : 'https://api.instagram.com/oauth',
         'apiDomain' : 'https://api.instagram.com/v1',
         'apiMaxCount' : 20
       },
       '$el' : {
         'form' : $('#insertagram-admin-form'),
-        'settingsForm' : $('#insertagram-settings-form'),
         'buttonMore' : $('.insertagram__button--more'),
         'buttonSubmit' : $('.insertagram__button--submit'),
         'container' : $('#insertagram-gallery-admin'),
@@ -31,8 +26,6 @@
     }
     // extend instagram object
     this.config.instagram = _.extend(this.config.instagram, insertagramConfig.instagram);
-    this.config.authRedirect = this.config.authDomain + '/insertagram/code';
-    this.config.authCredsUrl = this.config.authDomain + '/insertagram/init';
     // extend and override any defaults from instantiation config
     this.config = _.extend(this.config, config);
     console.log('config admin', this.config);
@@ -144,23 +137,6 @@
           self.displayRecent(response);
         });
       }
-      // insert iframe
-      var $iframe = $('<iframe src="' + self.config.authRedirect + '"></iframe>')
-      self.config.$el.settingsForm.after($iframe);
-
-      //Create IE + others compatible event handler
-      var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
-      var eventer = window[eventMethod];
-      var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
-
-
-      //Listen to message from child window
-      eventer(messageEvent,function(e) {
-        if(e.data.indexOf('insertagram:') !== -1){
-          var messages = e.data.replace('insertagram:', '');
-          console.log(messages);
-        }
-      },false);
     }
 
   };

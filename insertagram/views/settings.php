@@ -48,8 +48,6 @@ class InsertagramSettingsView
       submit_button();
       ?>
 
-      <a href="#" id="insertagram-btn-auth">Authenticate</a>
-
     </form>
 
     <?php

@@ -9,6 +9,7 @@
     // defaults
     this.config = {
       'authDomain' : 'https://hensonism-delegator.herokuapp.com',
+      //'authDomain' : 'http://localhost:8080',
       'instagram' : {
         'client' : 'a26ca36e89284e03be9b47bd3b0f9cc7',
         'authDomain' : 'https://api.instagram.com/oauth',
@@ -17,6 +18,7 @@
       },
       '$el' : {
         'form' : $('#insertagram-admin-form'),
+        'settingsForm' : $('#insertagram-settings-form'),
         'buttonMore' : $('.insertagram__button--more'),
         'buttonSubmit' : $('.insertagram__button--submit'),
         'container' : $('#insertagram-gallery-admin'),
@@ -29,7 +31,7 @@
     }
     // extend instagram object
     this.config.instagram = _.extend(this.config.instagram, insertagramConfig.instagram);
-    this.config.authRedirect = this.config.authDomain + '/insertagram?callback=callback';
+    this.config.authRedirect = this.config.authDomain + '/insertagram/code';
     this.config.authCredsUrl = this.config.authDomain + '/insertagram/init';
     // extend and override any defaults from instantiation config
     this.config = _.extend(this.config, config);
@@ -142,21 +144,23 @@
           self.displayRecent(response);
         });
       }
-      $('#insertagram-btn-auth').on('click', function(e){
-        e.preventDefault();
-        self.fetch(self.config.authCredsUrl, 'json', false, function(response){
-          var apiId = response.data.id;
-          var apiSecret = response.data.secret;
-          var codeUrl = self.config.instagram.authDomain + '/authorize/?client_id=' + apiId + '&redirect_uri=' + self.config.authRedirect + '&response_type=code';
-          self.fetch(codeUrl, 'jsonp', 'callback', function(response){
-            var redirect = encodeURIComponent(self.config.authRedirect);
-            var postUrl = self.config.authDomain + '/insertagram/auth/' + apiId + '/' + apiSecret + '/' + redirect + '/' + response.data.code;
-            self.fetch(postUrl, 'json', false, function(response){
-              console.log(response);
-            });
-          });
-        });
-      });
+      // insert iframe
+      var $iframe = $('<iframe src="' + self.config.authRedirect + '"></iframe>')
+      self.config.$el.settingsForm.after($iframe);
+
+      //Create IE + others compatible event handler
+      var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+      var eventer = window[eventMethod];
+      var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
+
+
+      //Listen to message from child window
+      eventer(messageEvent,function(e) {
+        if(e.data.indexOf('insertagram:') !== -1){
+          var messages = e.data.replace('insertagram:', '');
+          console.log(messages);
+        }
+      },false);
     }
 
   };

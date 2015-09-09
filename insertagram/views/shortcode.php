@@ -47,10 +47,22 @@ class InsertagramShortcodeView
 
   }
 
+  public function messages_template( $namespace, $status, $message )
+  {
+
+    return '<div class="' . $status . ' notice is-dismissible">' 
+      . '<p><strong>' . $namespace . '</strong></p>'
+      . $message
+      . '<button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button>'
+      . '</div>';
+
+  }
+
   public function admin( $insertagram_post_response, $insertagram_success ) 
   {
 
     $namespace = 'Insertagram';
+
   ?>
   <div class="wrap">
     <h1>Select Media to Create a Shortcode</h1>
@@ -59,34 +71,18 @@ class InsertagramShortcodeView
       foreach ( $insertagram_post_response as &$insertagram_sub ) {
         if( !$insertagram_sub['status'] && $insertagram_sub['data'] ) {
           $insertagram_post_status = 'notice-warning';
-  ?>
-    <div class="<?php echo $insertagram_post_status; ?> notice is-dismissible"> 
-      <p><strong><?php echo $namespace; ?></strong> (warning)</p>
-      <?php echo $insertagram_sub['data']; ?>
-      <button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button>
-    </div>
-  <?php
+          echo $this->messages_template( $namespace, $insertagram_post_status, $insertagram_sub['data'] );
         } // end if( !$insertagram_sub['status'] && $insertagram_sub['data'] )
       } // end foreach
       if( $insertagram_success ) {
         $insertagram_post_status = 'updated';
-  ?>
-    <div class="<?php echo $insertagram_post_status; ?> notice is-dismissible">
-      <p><strong><?php echo $namespace; ?></strong></p>
-      <p>Thanks for submitting! Your shortcode is below.</p>
-      <p><code>[insertagram id="<?php echo $insertagram_success ?>"]</code></p>
-      <button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button>
-    </div>
-  <?php
+        $message = '<p>Thanks for submitting! Your shortcode is below.</p>';
+        $message .= '<p><code>[insertagram id="' . $insertagram_success . '"]</code></p>';
+        echo $this->messages_template( $namespace, $insertagram_post_status, $message );
       } else {
         $insertagram_post_status = 'error';
-  ?>
-    <div class="<?php echo $insertagram_post_status; ?> notice is-dismissible"> 
-      <p><strong><?php echo $namespace; ?></strong> (error)</p>
-      <p>Unfortunately it all went wrong. Copy and paste the warning messages above and send to Insertagram contact.</p>
-      <button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button>
-    </div>
-  <?php
+        $message = '<p>Unfortunately it all went wrong. Copy and paste the warning messages above and send to Insertagram contact.</p>';
+        echo $this->messages_template( $namespace, $insertagram_post_status, $message );
       } // end if( $insertagram_success )
     } // end if !empty( $insertagram_post_response )
   ?>
@@ -109,13 +105,8 @@ class InsertagramShortcodeView
       $message = '<p>' . $message . ' Please visit the <a href="' . get_site_url() . '/wp-admin/options-general.php?page=insertagram">settings page</a> to set your credentials.</p>';
 
       $insertagram_post_status = 'error';
-  ?>
-    <div class="<?php echo $insertagram_post_status; ?> notice is-dismissible"> 
-      <p><strong><?php echo $namespace; ?></strong></p>
-      <?php echo $message; ?>
-      <button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button>
-    </div>
-  <?php
+
+      echo $this->messages_template( $namespace, $insertagram_post_status, $message );
 
     } else {
 

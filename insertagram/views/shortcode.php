@@ -106,7 +106,7 @@ class InsertagramShortcodeView
         $message .= 'Access Token is not set.';
       }
       
-      $message = '<p>' . $message . ' Please visit the settings page to set your credentials.</p>';
+      $message = '<p>' . $message . ' Please visit the <a href="' . get_site_url() . '/wp-admin/options-general.php?page=insertagram">settings page</a> to set your credentials.</p>';
 
       $insertagram_post_status = 'error';
   ?>

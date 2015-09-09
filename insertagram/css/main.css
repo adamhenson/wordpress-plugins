@@ -382,8 +382,8 @@
 .insertagram__preloader > div {
     display: inline-block;
     float: none;
-    background-color: currentColor;
-    border: 0 solid currentColor;
+    background-color: #fff;
+    border: 0 solid #fff;
 }
 
 .insertagram__preloader {

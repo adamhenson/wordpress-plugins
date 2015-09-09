@@ -95,13 +95,13 @@ class InsertagramShortcodeView
       </div>
       <button class="insertagram__button--more">
         More
-        <div class="insertagram__preloader"><div></div><div></div><div>
+        <div class="insertagram__preloader"><div></div><div></div><div></div><div>
       </button>
       <form action="" method="post" id="insertagram-admin-form">
         <input type="hidden" name="insertagram" value="true" />
         <button class="insertagram__button--submit" type="submit">
           Submit
-          <div class="insertagram__preloader"><div></div><div></div><div>
+          <div class="insertagram__preloader"><div></div><div></div></div>
         </button>
       </form>
     </div>

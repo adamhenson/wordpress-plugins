@@ -193,7 +193,8 @@
 }
 
 /* admin */
-.instertagram-gallery-admin-content {
+.insertagram-gallery-admin-content,
+.insertagram__buttons {
   overflow: hidden;
 }
 

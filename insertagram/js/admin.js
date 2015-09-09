@@ -14,13 +14,15 @@
       },
       '$el' : {
         'form' : $('#insertagram-admin-form'),
+        'wrap' : $('.wrap').first(),
         'buttonMore' : $('.insertagram__button--more'),
         'buttonSubmit' : $('.insertagram__button--submit'),
         'container' : $('#insertagram-gallery-admin'),
         'galleryAdmin' : $('.insertagram-gallery-admin-content'),
         'template' : {
           'figure' : $('#insertagram-template-admin-gallery-figure').html(),
-          'inputs' : $('#insertagram-template-admin-gallery-inputs').html()
+          'inputs' : $('#insertagram-template-admin-gallery-inputs').html(),
+          'messages' : $('#insertagram-template-admin-messages').html()
         }
       }
     }
@@ -28,7 +30,6 @@
     this.config.instagram = _.extend(this.config.instagram, insertagramConfig.instagram);
     // extend and override any defaults from instantiation config
     this.config = _.extend(this.config, config);
-    console.log('config admin', this.config);
   };
 
   /**
@@ -130,9 +131,27 @@
 
     'initialize' : function () {
       var self = this;
-      if(self.config.instagram.userId === '') {
-        console.log('Insertagram: Instagram user ID is not set.');
-      } else {
+      if(self.config.instagram.userId === '' || self.config.instagram.token === '') {
+        var message = '';
+        if(self.config.instagram.userId === '') {
+          message += 'User ID is not set. ';
+          console.log('Insertagram: User ID is not set.');
+        }
+        if(self.config.instagram.token === '') {
+          message += 'Access Token is not set.';
+          console.log('Insertagram: Access Token is not set.');
+        }
+        message = '<p>' + message + ' Please visit the settings page to set your credentials.</p>';
+        if(window.insertagramConfig.shortcodePage) {
+          var templateCompilerMessages = _.template(self.config.$el.template.messages);
+          var compiledTemplateMessages = templateCompilerMessages({
+            'namespace' : 'Insertagram',
+            'status' : 'error',
+            'message' : message
+          });
+          self.config.$el.wrap.find('h1').first().after(compiledTemplateMessages);
+        }
+      } else if(window.insertagramConfig.shortcodePage) {
         self.getRecent(self.config.instagram.userId, function(response){
           self.displayRecent(response);
         });

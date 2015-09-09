@@ -22,9 +22,11 @@ class InsertagramSettingsView
   public function options_page() { 
     ?>
 
+    <div class="wrap">
+    <h1>Insertagram Settings</h1>
+    <p>Click on the button below to get your Instagram API credentials. After that, copy and paste the credentials into the form below and submit.</p>
+    <a href="https://hensonism-delegator.herokuapp.com/insertagram/code" target="_blank" class="button-primary">Get Credentials</a>
     <form action='options.php' method='post' class="wrap" id="insertagram-settings-form">
-      
-      <h2>Insertagram Settings</h2>
       
       <?php
       settings_fields( 'pluginPage' );
@@ -33,8 +35,7 @@ class InsertagramSettingsView
       ?>
 
     </form>
-
-    <a href="https://hensonism-delegator.herokuapp.com/insertagram/code" target="_blank">Get Credentials</a>
+    </div>
 
     <?php
   }

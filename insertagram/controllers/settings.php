@@ -47,7 +47,7 @@ class InsertagramSettingsController
 
     add_settings_field( 
       'insertagram_text_instagram_userId', 
-      __( 'Instagram User ID', 'insertagram' ), 
+      __( 'User ID', 'insertagram' ), 
       array( $this, 'text_instagram_userId_render' ), 
       'pluginPage', 
       'insertagram_pluginPage_section' 
@@ -55,7 +55,7 @@ class InsertagramSettingsController
 
     add_settings_field( 
       'insertagram_text_instagram_api_token', 
-      __( 'Instagram API Access Token', 'insertagram' ), 
+      __( 'Access Token', 'insertagram' ), 
       array( $this, 'text_instagram_api_token_render' ), 
       'pluginPage', 
       'insertagram_pluginPage_section' 

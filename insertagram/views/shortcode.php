@@ -90,23 +90,59 @@ class InsertagramShortcodeView
       } // end if( $insertagram_success )
     } // end if !empty( $insertagram_post_response )
   ?>
+  <?php
+
+    $options = get_option( 'insertagram_settings' );
+
+    if ( empty( $options['insertagram_text_instagram_api_token'] ) || empty( $options['insertagram_text_instagram_userId'] ) ) {
+      
+      $message = '';
+
+      if( empty( $options['insertagram_text_instagram_userId'] ) ) {
+        $message .= 'User ID is not set. ';
+      }
+
+      if( empty( $options['insertagram_text_instagram_api_token'] ) ) {
+        $message .= 'Access Token is not set.';
+      }
+      
+      $message = '<p>' . $message . ' Please visit the settings page to set your credentials.</p>';
+
+      $insertagram_post_status = 'error';
+  ?>
+    <div class="<?php echo $insertagram_post_status; ?> notice is-dismissible"> 
+      <p><strong><?php echo $namespace; ?></strong></p>
+      <?php echo $message; ?>
+      <button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button>
+    </div>
+  <?php
+
+    } else {
+
+  ?>
+    <p>Select one or more items and click "submit" to generate a shortcode to paste into any post or page.</p>
+    <p>If you want to display a feed of recent posts, simply paste in this shortcode: <code>[insertagram feed="true"]</code>.</p>
+    <script>window.insertagramConfig.shortcodePage = true;</script>
     <div id="insertagram-gallery-admin" class="insertagram-container">
-      <div class="insertagram-gallery-admin-content">
-      </div>
-      <button class="insertagram__button--more">
-        More
-        <div class="insertagram__preloader"><div></div><div></div><div></div><div>
-      </button>
-      <form action="" method="post" id="insertagram-admin-form">
-        <input type="hidden" name="insertagram" value="true" />
-        <button class="insertagram__button--submit" type="submit">
-          Submit
-          <div class="insertagram__preloader"><div></div><div></div></div>
+      <div class="insertagram-gallery-admin-content"></div>
+      <div class="insertagram__buttons">
+        <button class="insertagram__button--more">
+          More
+          <div class="insertagram__preloader"><div></div><div></div><div></div></div>
         </button>
-      </form>
+        <form action="" method="post" id="insertagram-admin-form">
+          <input type="hidden" name="insertagram" value="true" />
+          <button class="insertagram__button--submit" type="submit">
+            Submit
+            <div class="insertagram__preloader"><div></div><div></div><div></div></div>
+          </button>
+        </form>
+      </div>
     </div>
   </div>
   <?php
+
+    }
 
     return false;
 

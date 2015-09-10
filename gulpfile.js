@@ -1,6 +1,6 @@
 var gulp = require('gulp');
 var minifyCss = require('gulp-minify-css');
-var minify = require('gulp-minify');
+var uglify = require('gulp-uglify');
 
 gulp.task('insertagram-minify-css', function() {
   return gulp.src('./assets/insertagram/css/*.css')
@@ -10,12 +10,8 @@ gulp.task('insertagram-minify-css', function() {
 
 gulp.task('insertagram-minify-js', function() {
   gulp.src('./assets/insertagram/js/*.js')
-    .pipe(minify())
+    .pipe(uglify())
     .pipe(gulp.dest('./insertagram/js/'))
 });
 
-// default
-//gulp.task('default', ['mongodump', 'mongorestore']);
-
-// one
-//gulp.task('one', ['concatRequire', 'minifyCss']);
+gulp.task('insertagram-build', ['insertagram-minify-css', 'insertagram-minify-js']);

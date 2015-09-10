@@ -10,7 +10,7 @@ class InsertagramPageView
   <script>
     window.insertagramConfig = {
       'instagram' : {
-        'userId' : '<?php echo $options["insertagram_text_instagram_userId"]; ?>',
+        'userId' : '<?php echo $options["insertagram_text_instagram_user_id"]; ?>',
         'token' : '<?php echo $options["insertagram_text_instagram_api_token"]; ?>'
       },
       'instances' : [],

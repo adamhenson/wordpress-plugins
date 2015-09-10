@@ -46,7 +46,7 @@ class InsertagramSettingsController
     );
 
     add_settings_field( 
-      'insertagram_text_instagram_userId', 
+      'insertagram_text_instagram_user_id', 
       __( 'User ID', 'insertagram' ), 
       array( $this, 'text_instagram_userId_render' ), 
       'pluginPage', 

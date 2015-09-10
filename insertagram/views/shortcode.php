@@ -90,11 +90,11 @@ class InsertagramShortcodeView
 
     $options = get_option( 'insertagram_settings' );
 
-    if ( empty( $options['insertagram_text_instagram_api_token'] ) || empty( $options['insertagram_text_instagram_userId'] ) ) {
+    if ( empty( $options['insertagram_text_instagram_api_token'] ) || empty( $options['insertagram_text_instagram_user_id'] ) ) {
       
       $message = '';
 
-      if( empty( $options['insertagram_text_instagram_userId'] ) ) {
+      if( empty( $options['insertagram_text_instagram_user_id'] ) ) {
         $message .= 'User ID is not set. ';
       }
 

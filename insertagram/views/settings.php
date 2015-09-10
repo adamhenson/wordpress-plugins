@@ -6,8 +6,8 @@ class InsertagramSettingsView
   public function text_instagram_userId( $options ) 
   {
 
-    if( !isset( $options['insertagram_text_instagram_userId'] ) ) $options['insertagram_text_instagram_userId'] = '';
-    return '<input type="text" name="insertagram_settings[insertagram_text_instagram_userId]" value="' . $options['insertagram_text_instagram_userId'] . '">';
+    if( !isset( $options['insertagram_text_instagram_user_id'] ) ) $options['insertagram_text_instagram_user_id'] = '';
+    return '<input type="text" name="insertagram_settings[insertagram_text_instagram_user_id]" value="' . $options['insertagram_text_instagram_user_id'] . '">';
 
   }
 

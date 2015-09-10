@@ -135,26 +135,25 @@
 
     'initialize' : function () {
       var self = this;
-      console.log('config', self.config);
-
-      // display media
-      if(self.config.instances.length > 0) {
-        for(var i=0; i < self.config.instances.length; i++){
-          var instance = self.config.instances[i];
-          self.getMediaData(instance.id, function(response){
-            var $el = $('#insertagram-container-' + instance.timestamp);
-            self.displayMedia($el, response.data, instance.info);
-          })
+      if(self.config.instagram.userId && self.config.instagram.token && self.config.instagram.userId !== '' && self.config.instagram.token !== '') {
+        // display media
+        if(self.config.instances.length > 0) {
+          for(var i=0; i < self.config.instances.length; i++){
+            var instance = self.config.instances[i];
+            self.getMediaData(instance.id, function(response){
+              var $el = $('#insertagram-container-' + instance.timestamp);
+              self.displayMedia($el, response.data, instance.info);
+            })
+          }
         }
-      }
-
-      // display feed
-      if(self.config.feeds.length > 0){
-        for(var feedCount=0; feedCount < self.config.feeds.length; feedCount++){
-          var feedIndex = feedCount;
-          self.getRecent(self.config.instagram.userId, function(response){
-            self.displayFeed(response, feedIndex);
-          });
+        // display feed
+        if(self.config.feeds.length > 0){
+          for(var feedCount=0; feedCount < self.config.feeds.length; feedCount++){
+            var feedIndex = feedCount;
+            self.getRecent(self.config.instagram.userId, function(response){
+              self.displayFeed(response, feedIndex);
+            });
+          }
         }
       }
     }

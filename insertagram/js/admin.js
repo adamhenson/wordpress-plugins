@@ -131,7 +131,7 @@
 
     'initialize' : function () {
       var self = this;
-      if(self.config.instagram.userId === '' || self.config.instagram.token === '') {
+      if(!self.config.instagram.userId || !self.config.instagram.token || self.config.instagram.userId === '' || self.config.instagram.token === '') {
         var message = '';
         if(self.config.instagram.userId === '') console.log('Insertagram: User ID is not set.');
         if(self.config.instagram.token === '') console.log('Insertagram: Access Token is not set.');

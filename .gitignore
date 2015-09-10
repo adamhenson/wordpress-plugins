@@ -1,4 +1,12 @@
-############
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
 # Packages #
 ############
 # it's better to unpack these files and commit the raw source
@@ -10,6 +18,8 @@
 *.jar
 *.rar
 *.tar
+*.zip
+*.idea
 
 # Logs and databases #
 ######################
@@ -19,8 +29,38 @@
 
 # OS generated files #
 ######################
-.DS_Store*
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
 ehthumbs.db
-Icon?
 Thumbs.db
-*.mno
+
+# node #
+######################
+lib-cov
+lcov.info
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+pids
+logs
+results
+build
+.grunt
+.gulp
+node_modules
+test
+
+# app specific #
+######################
+dump
+dump.rdb
+exports
+configs.txt
+scripts

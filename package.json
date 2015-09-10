@@ -1,0 +1,21 @@
+{
+  "name": "hensonism-plugins",
+  "version": "0.0.1",
+  "private": true,
+  "author": "Hensonism <adam@hensonism.com>",
+  "description": "Wordpress plugins.",
+  "contributors": [
+    {
+      "name": "Adam Henson",
+      "email": "adam@hensonism.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adamhenson/wordpress-plugins"
+  },
+  "devDependencies": {
+    "gulp": "~3.9.0",
+    "gulp-minify-css": "~1.2.1"
+  }
+}

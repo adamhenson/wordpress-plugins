@@ -1,10 +1,17 @@
 var gulp = require('gulp');
 var minifyCss = require('gulp-minify-css');
+var minify = require('gulp-minify');
 
 gulp.task('insertagram-minify-css', function() {
   return gulp.src('./assets/insertagram/css/*.css')
-    .pipe(minifyCss({compatibility: 'ie8'}))
+    .pipe(minifyCss())
     .pipe(gulp.dest('./insertagram/css/'));
+});
+
+gulp.task('insertagram-minify-js', function() {
+  gulp.src('./assets/insertagram/js/*.js')
+    .pipe(minify())
+    .pipe(gulp.dest('./insertagram/js/'))
 });
 
 // default

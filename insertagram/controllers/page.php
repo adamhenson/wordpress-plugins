@@ -18,7 +18,7 @@ class InsertagramPageController
     wp_enqueue_style( 'ss-standard', INSERTAGRAM_URL . 'css/webfonts/ss-standard.css' );
     wp_enqueue_style( 'main', INSERTAGRAM_URL . 'css/main.css' );
     wp_enqueue_script( 'modernizr', INSERTAGRAM_URL . 'js/lib/modernizr.js', array(), false, true );
-    wp_enqueue_script( 'main', INSERTAGRAM_URL . 'js/main.js', array('jquery', 'underscore'), false, true );
+    wp_enqueue_script( 'main', INSERTAGRAM_URL . 'js/main-min.js', array('jquery', 'underscore'), false, true );
   
   }
 
@@ -27,7 +27,7 @@ class InsertagramPageController
 
     wp_enqueue_style( 'ss-standard', INSERTAGRAM_URL . 'css/webfonts/ss-standard.css' );
     wp_enqueue_style( 'main', INSERTAGRAM_URL . 'css/main.css' );
-    wp_enqueue_script( 'admin', INSERTAGRAM_URL . 'js/admin.js', array('jquery', 'underscore'), false, true );
+    wp_enqueue_script( 'admin', INSERTAGRAM_URL . 'js/admin-min.js', array('jquery', 'underscore'), false, true );
 
   }
 

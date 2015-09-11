@@ -7,7 +7,7 @@ Stable tag: 0.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Display images from your Instagram account with ease in a simple, elegant, responsive layout.
+Display hand-picked images or a feed from an Instagram account with ease in a simple, elegant, responsive layout.
 
 == Description ==
 

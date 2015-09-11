@@ -13,6 +13,8 @@ Display images from your Instagram account with ease in a simple, elegant, respo
 
 **The key ingredient (separation from all the other Instagram plugins) is the capability to choose a your photos to insert one at a time or by groups.** Within the Wordpress admin choose images from your Instagram account to show. You can also display a feed of your most recent posts to show in real time. The presentation includes upd to date like count, comment count, caption, and profile pic.
 
+See a demo [here](http://insertagram.hensonism.com "here").
+
 = Features =
 * Simple to setup and use. No Instagram developer account needed.
 * Completely **responsive** - mobile friendly.
@@ -39,4 +41,7 @@ Please send an email to [Adam](mailto:adamhenson1979@gmail.com "Adam").
 
 == Screenshots ==
 
-Coming soon.
+1. The Instagram image.
+2. The Instagram image hover state.
+3. The admin page to select image/s to generate a shortcode.
+4. It's as easy as copying and pasting the shortcode.

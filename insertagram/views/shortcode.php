@@ -77,7 +77,7 @@ class InsertagramShortcodeView
       if( $insertagram_success ) {
         $insertagram_post_status = 'updated';
         $message = '<p>Thanks for submitting! Your shortcode is below.</p>';
-        $message .= '<p><code>[insertagram id="' . $insertagram_success . '"]</code></p>';
+        $message .= '<p><code>[insertagram id=' . $insertagram_success . ']</code></p>';
         echo $this->messages_template( $namespace, $insertagram_post_status, $message );
       } else {
         $insertagram_post_status = 'error';
@@ -112,7 +112,7 @@ class InsertagramShortcodeView
 
   ?>
     <p>Select one or more items and click "submit" to generate a shortcode to paste into any post or page.</p>
-    <p>If you want to display a feed of recent posts, simply paste in this shortcode: <code>[insertagram feed="true"]</code>.</p>
+    <p>If you want to display a feed of recent posts, simply paste in this shortcode: <code>[insertagram feed=true]</code>.</p>
     <script>window.insertagramConfig.shortcodePage = true;</script>
     <div id="insertagram-gallery-admin" class="insertagram-container">
       <div class="insertagram-gallery-admin-content"></div>

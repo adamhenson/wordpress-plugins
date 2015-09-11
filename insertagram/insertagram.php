@@ -1,13 +1,14 @@
 <?php
 /*
 Plugin Name: Insertagram
-Plugin URI: http://portfolio.hensonism.com
+Plugin URI: http://insertagram.hensonism.com
 Description: Inserts Instagram pics and galleries with ease.
-Author: Adam Henson
+Author: Hensonism
 Version: 0.0.1
 Author URI: https://github.com/adamhenson
 Text Domain: insertagram
-License: GPL version 2 or later - http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 if (!defined( 'INSERTAGRAM_URL' )) {
   define( 'INSERTAGRAM_URL', plugin_dir_url( __FILE__ ) );

@@ -1,5 +1,5 @@
 === Insertagram ===
-Contributors: smashballoon
+Contributors: Hensonism
 Tags: Instagram, Instagram feed, Instagram photos, Instagram plugin, Instagram stream, Custom Instagram Feed, responsive Instagram, mobile Instagram, Instagram posts, Instagram wall, Instagram account
 Requires at least: 4.0
 Tested up to: 4.3

@@ -3,7 +3,7 @@
 class InsertagramSettingsView
 {
 
-  public function text_instagram_userId( $options ) 
+  public function text_instagram_user_id( $options ) 
   {
 
     if( !isset( $options['insertagram_text_instagram_user_id'] ) ) $options['insertagram_text_instagram_user_id'] = '';

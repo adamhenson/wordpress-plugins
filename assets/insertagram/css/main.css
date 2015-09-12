@@ -52,6 +52,28 @@
   content: "";
 }
 
+.insertagram a .insertagram__icon--play {
+  width: 40px;
+  height: 40px;
+  font-size: 40px;
+  line-height: 40px;
+  margin: auto;
+  color: #fff;
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top:-20px;
+  margin-left: -20px;
+  z-index: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+  filter: alpha(opacity=60);
+  -moz-opacity: 0.6;
+  -khtml-opacity: 0.6;
+  opacity: 0.6;
+}
+
 .insertagram a:hover .insertagram__overlay {
   display: block;
   /* vignette to override blur edges */

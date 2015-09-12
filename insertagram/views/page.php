@@ -25,8 +25,14 @@ class InsertagramPageView
   {
 
     $figureHtml = '<script id="insertagram-template-gallery-figure" type="text/template">'
-      . '<figure class="insertagram<%= infoClass %>" id="insertagram-<%= userId %>">'
-      . '<a href="<%= mediaLink %>" target="_blank"><%= overlay %><img src="<%= imageStandardUrl %>" /></a>'
+      . '<figure class="insertagram<%= infoClass %> insertagram--<%= type %>" id="insertagram-<%= userId %>">'
+      . '<a href="<%= mediaLink %>" target="_blank">'
+      . '<%= overlay %>'
+      . '<img src="<%= imageStandardUrl %>" />'
+      . '<% if(type === "video") { %>'
+      . '<span class ="ss-play insertagram__icon insertagram__icon--play"></span>'
+      . '<% } %>'
+      . '</a>'
       . '</figure>'
       . '</script>';
 

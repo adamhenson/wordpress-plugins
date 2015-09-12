@@ -101,6 +101,7 @@
         'userId' : media.user.id,
         'infoClass' : infoClass,
         'overlay' : overlay,
+        'type' : media.type,
         'mediaLink' : media.link,
         'imageStandardUrl' : media.images.standard_resolution.url
       });

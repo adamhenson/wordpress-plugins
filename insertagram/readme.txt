@@ -41,7 +41,7 @@ Please send an email to [Adam](mailto:adamhenson1979@gmail.com "Adam").
 
 == Screenshots ==
 
-1. The Instagram image.
-2. The Instagram image hover state.
-3. The admin page to select image/s to generate a shortcode.
-4. It's as easy as copying and pasting the shortcode.
+1. **Instagram image** - This is how it looks from a visitor perspective in the Twenty Fifteen theme.
+2. **Instagram image hover state** - And the hover state in the Twenty Fifteen theme.
+3. **Admin page** - select image/s to generate a shortcode.
+4. **Admin page success** - It's as easy as copying and pasting the shortcode generated in the success message.

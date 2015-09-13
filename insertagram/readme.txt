@@ -1,9 +1,9 @@
 === Insertagram ===
 Contributors: Hensonism
-Tags: Instagram, Insertagram, Instagram photos, Instagram plugin, Instagram stream, Custom Instagram Feed, responsive Instagram, mobile Instagram, Instagram posts, Instagram wall, Instagram account
+Tags: instagram, insert instagram, photos, instagram plugin, instagram stream, instagram feed, responsive, custom, mobile, instagram posts, instagram wall, instagram account
 Requires at least: 4.0
 Tested up to: 4.3
-Stable tag: 0.0.1
+Stable tag: 0.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 

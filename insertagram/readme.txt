@@ -1,24 +1,27 @@
 === Instagram Insertagram - Custom Select Photos and Feeds to Display ===
 Contributors: Hensonism
-Tags: instagram, photo, photos, pic, gallery, instagram plugin, instagram stream, instagram feed, responsive, custom, mobile, instagram posts, instagram wall, instagram account
+Tags: instagram, photo, photos, pic, gallery, instagram plugin, instagram stream, instagram photo, instagram video, instagram feed, responsive, custom, mobile, instagram posts, instagram wall, instagram account
 Requires at least: 4.0
 Tested up to: 4.3
 Stable tag: 0.0.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Display hand-picked images or feeds from an Instagram account with ease in a simple, elegant, responsive layout.
+Display hand-picked photos, videos or feeds from an Instagram account with ease in a simple, elegant, responsive layout.
 
 == Description ==
 
 **Why Use Insertagram?**
-The key ingredient (separation from all the other **Instagram** plugins) is the capability to choose photos to insert one at a time or by groups. Within the Wordpress admin choose images from your **Instagram** account to show. You can also display a feed of your most recent posts to show in real time.
+
+The key ingredient (separation from all the other **Instagram** plugins) is the capability to choose photos or videos to insert one at a time or by groups. Within the WordPress admin choose media from an **Instagram** account to show. You can also display a feed of your most recent posts to show in real time.
 
 **How Does it Look?**
+
 The image display is simple, crisp, elegant, and responsive. In viewing the embedded **Instagram** photos on posts and pages, the user can hover over and see the **Instagram** profile pic, caption, like count, comment count... and click to open the **Instagram** page in a new tab of the browser.
 
 **How Do I Manage It?**
-Use the 'Insertagram +' link in the left nav to generate shortcodes by selecting the images you'd like to post. This admin page allows you to browse and choose images in an **Instagram** account to display.
+
+Use the 'Insertagram +' link in the left nav to generate shortcodes by selecting the images you'd like to post. This admin page allows you to browse and choose images in an **Instagram** account to display. Insertagram also provides a shortcode to embed entire feeds - displaying recent posts in real time.
 
 See a demo [here](http://insertagram.hensonism.com "here").
 

@@ -3,11 +3,11 @@ Contributors: Hensonism
 Tags: instagram, photo, photos, pic, gallery, instagram plugin, instagram stream, instagram feed, responsive, custom, mobile, instagram posts, instagram wall, instagram account
 Requires at least: 4.0
 Tested up to: 4.3
-Stable tag: 0.0.6
+Stable tag: 0.0.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Display hand-picked images or feeds from an **Instagram** account with ease in a simple, elegant, responsive layout.
+Display hand-picked images or feeds from an Instagram account with ease in a simple, elegant, responsive layout.
 
 == Description ==
 

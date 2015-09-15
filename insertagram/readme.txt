@@ -1,13 +1,13 @@
-=== Instagram Insertagram - Custom Select Photos and Feeds to Display ===
+=== Instagram Insertagram ===
 Contributors: Hensonism
 Tags: instagram, instagram feed, instagram stream, instagram photo, instagram post, instagram account
 Requires at least: 4.0
 Tested up to: 4.3
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Display hand-picked photos, videos or feeds from an Instagram account with ease in a simple, elegant, responsive layout.
+Display custom selected photos, videos or feeds from an Instagram account with ease in a simple, elegant, responsive layout.
 
 == Description ==
 
@@ -52,14 +52,17 @@ Please send an email to [Adam](mailto:adamhenson1979@gmail.com "Adam").
 
 == Changelog ==
 
-= 1.0.0 =
-* First stable release.
+= 1.0.4 =
+* More Copy changes on readme.
 
-= 1.0.1 =
-* Tagging and keywords for search results.
+= 1.0.3 =
+* Trim copy from readme file.
 
 = 1.0.2 =
 * Tagging and keywords for search results.
 
-= 1.0.3 =
-* Trim copy from readme file.
+= 1.0.1 =
+* Tagging and keywords for search results.
+
+= 1.0.0 =
+* First stable release.

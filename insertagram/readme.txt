@@ -3,7 +3,7 @@ Contributors: Hensonism
 Tags: instagram, instagram feed, instagram stream, instagram photo, instagram post, instagram account
 Requires at least: 4.0
 Tested up to: 4.3
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -11,9 +11,9 @@ Display custom selected photos, videos or feeds from an Instagram account with e
 
 == Description ==
 
-**Why Use Insertagram?** The key ingredient (separation from all the other **Instagram** plugins) is the capability to choose photos or videos to insert one at a time or by groups. Insertagram also has the capability to display feeds from an **Instagram** account.
+**Why Use Insertagram?** The key ingredient (separation from all the other **Instagram** plugins) is the capability to choose **photos** or **videos** to insert one at a time or by groups. Insertagram also has the capability to display feeds from an **Instagram** account.
 
-**How Does it Look?** The image display is simple, crisp, elegant, and responsive. In viewing the embedded **Instagram** photos on posts and pages, the user can hover over and see the **Instagram** profile pic, caption, like count, comment count... and click to open the **Instagram** page in a new tab of the browser.
+**How Does it Look?** The image display is simple, crisp, elegant, and **responsive**. In viewing the embedded **Instagram** photos on posts and pages, the user can hover over and see the **Instagram** profile pic, caption, like count, comment count... and click to open the **Instagram** page in a new tab of the browser.
 
 **How Do I Manage It?** Use the 'Insertagram +' link in the left nav to generate shortcodes by selecting the images you'd like to post... or use the shortcode to display a recent feed from an **Instagram** account.
 
@@ -51,6 +51,9 @@ Please send an email to [Adam](mailto:adamhenson1979@gmail.com "Adam").
 4. **Admin page success** - It's as easy as copying and pasting the shortcode generated in the success message.
 
 == Changelog ==
+
+= 1.0.5 =
+* More Copy changes on readme.
 
 = 1.0.4 =
 * More Copy changes on readme.

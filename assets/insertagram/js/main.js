@@ -54,9 +54,6 @@
         var nextUrl = $this.attr('data-next');
         var feedIndex = $this.attr('data-feed');
         $this.parent().addClass('loading');
-        setTimeout(function(){ 
-          $this.remove();
-        }, 300);
         self.fetch(nextUrl, function(response){
           self.displayFeed(response, feedIndex);
           $this.parent().removeClass('loading');
